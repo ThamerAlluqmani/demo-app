@@ -28,6 +28,7 @@ Route::group(
 
     Route::resource('products', \App\Http\Controllers\ProductController::class);
     Route::resource('language', \App\Http\Controllers\LanguageController::class);
+    Route::get('productsNumber', [\App\Http\Controllers\TestController::class, 'show'])->name("productsNumber");
 
 });
 
