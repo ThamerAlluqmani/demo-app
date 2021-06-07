@@ -24,12 +24,13 @@ Route::group(
 
     ], function () {
 
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('throttle:userHomeLimit')->name('home');
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->middleware('throttle:userHomeLimit')->name('home');
 
     Route::resource('products', \App\Http\Controllers\ProductController::class);
-    Route::resource('language', \App\Http\Controllers\LanguageController::class);
+    Route::resource('language', \App\Http\Controllers\LanguageController::class)->middleware('is_admin');
+    Route::resource('newAdmin', \App\Http\Controllers\AdminController::class)->middleware('is_admin');
     Route::get('productsNumber', [\App\Http\Controllers\TestController::class, 'show'])->name("productsNumber");
-
 });
 
 
