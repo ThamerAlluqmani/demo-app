@@ -19,11 +19,8 @@ Auth::routes();
 
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/', function () {
-        return view('welcome');
-    });
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('throttle:userHomeLimit')->name('home');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->middleware('throttle:userHomeLimit')->name('home');
 
 
 });
