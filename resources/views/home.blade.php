@@ -14,6 +14,7 @@
                         </div>
                     @endif
                         <a class="btn btn-info btn-lg" href="{{route('products.index')}}">  {{ __('products') }}</a>
+                        <a class="btn btn-info btn-lg" href="{{route('language.index')}}">  {{ __('Language') }}</a>
 
                 </div>
             </div>

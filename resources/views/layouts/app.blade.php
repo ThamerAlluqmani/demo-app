@@ -34,6 +34,15 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
+
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <li class="ml-5">
+                                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                </li>
+                            @endforeach
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
