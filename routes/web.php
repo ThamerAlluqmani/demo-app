@@ -22,5 +22,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->middleware('throttle:userHomeLimit')->name('home');
 
+    Route::resource('products', \App\Http\Controllers\ProductController::class);
+
 
 });
